@@ -67,7 +67,7 @@ class PrismFX : public Device {
 		bool CMD_SET;	// maintain state of C/D pin to avoid changing it if already in the correct state
 
 		// properties required for printGFX
-		uint16_t bufPtr, bufLen;
+		uint16_t bufPtr, bufLen, fontHeight;
 		uint32_t gfx_buffer[260];
 		const GFXfont *fnt;
 
