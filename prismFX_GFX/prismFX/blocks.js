@@ -75,24 +75,24 @@ Blockly.Blocks["prismfx.print"] = {
 Blockly.Blocks["prismfx.printGFX"] = {
 	init: function() {
 		prismfx_init(this);
-		this.appendDummyInput().appendField("Print GFX");
-		this.appendValueInput("Col").setCheck("Number" ).appendField("Column");
-		this.appendValueInput("Row").setCheck("Number" ).appendField("Row"   );
-		this.appendValueInput('Str').setCheck("String" ).appendField("Str TH&EN"   );
+		this.appendDummyInput().appendField(Blockly.Msg.PRISMFX_PRINTGFX_TITLE);
+		this.appendValueInput("Col").setCheck("Number" ).appendField(Blockly.Msg.PRISMFX_X);
+		this.appendValueInput("Row").setCheck("Number" ).appendField(Blockly.Msg.PRISMFX_Y);
+		this.appendValueInput('Str').setCheck("String" ).appendField(Blockly.Msg.PRISMFX_PRINTGFX_MSG);
 		this.setInputsInline(true);
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
 		this.setColour(160);
-		this.setTooltip("");
-		this.setHelpUrl("");
+		this.setTooltip(Blockly.Msg.PRISMFX_PRINTGFX_TOOLTIP);
+		this.setHelpUrl(Blockly.Msg.PRISMFX_PRINTGFX_HELPURL);
 }};
 
 Blockly.Blocks['prismfx.point'] = {
 	init: function() {
 	  prismfx_init(this);
 	  this.appendDummyInput().appendField(Blockly.Msg.PRISMFX_POINT_TITLE);
-	  this.appendValueInput("X1").setCheck("Number").appendField(Blockly.Msg.PRISMFX_POINT_X);
-	  this.appendValueInput("Y1").setCheck("Number").appendField(Blockly.Msg.PRISMFX_POINT_Y);
+	  this.appendValueInput("X1").setCheck("Number").appendField(Blockly.Msg.PRISMFX_X);
+	  this.appendValueInput("Y1").setCheck("Number").appendField(Blockly.Msg.PRISMFX_Y);
 	  this.appendValueInput("COLOR").setCheck("Number").appendField(Blockly.Msg.PRISMFX_Color);
 	  this.setInputsInline(true);
 	  this.setPreviousStatement(true, null);
