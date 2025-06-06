@@ -3,6 +3,8 @@ Blockly.Msg.PRISMFX_Fill            = "Fill";
 Blockly.Msg.PRISMFX_Outline         = "Outline";
 Blockly.Msg.PRISMFX_Rotation        = "Orientation";
 Blockly.Msg.PRISMFX_Color           = "Color";
+Blockly.Msg.PRISMFX_X               = "X (0-239)";
+Blockly.Msg.PRISMFX_Y               = "Y (0-239)";
 Blockly.Msg.PRISMFX_X1              = "X1 (0-239)";
 Blockly.Msg.PRISMFX_Y1              = "Y1 (0-239)";
 Blockly.Msg.PRISMFX_X2              = "X2 (0-239)";
@@ -34,9 +36,12 @@ Blockly.Msg.PRISMFX_PRINT_Size      = "Text size";
 Blockly.Msg.PRISMFX_PRINT_TOOLTIP   = "Print ascii characters at location\nFor Small line=1-30, column=1-40\nFor Medium line=1-16,column=1-24";
 Blockly.Msg.PRISMFX_PRINT_HELPURL   = "";
 
+Blockly.Msg.PRISMFX_PRINTGFX_TITLE  = "Print GFX:";
+Blockly.Msg.PRISMFX_PRINTGFX_MSG    = "Sting (TH/EN)";
+Blockly.Msg.PRISMFX_PRINTGFX_TOOLTIP= "Print TH, EN, or mixed TH/EN character string\nCan change GFX fonts by replacing thFont.h or enFont.h";
+Blockly.Msg.PRISMFX_PRINTGFX_HELPURL= "";
+
 Blockly.Msg.PRISMFX_POINT_TITLE     = "Draw Pixel:";
-Blockly.Msg.PRISMFX_POINT_X         = "X (0-239)";
-Blockly.Msg.PRISMFX_POINT_Y         = "Y (0-239)";
 Blockly.Msg.PRISMFX_POINT_TOOLTIP   = "Plot a pixel with specified color at coordinates (x,y)";
 Blockly.Msg.PRISMFX_POINT_HELPUR    = "";
 
