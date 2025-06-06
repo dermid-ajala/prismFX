@@ -24,29 +24,29 @@ Blockly.Blocks["prismfx.clear"] = {
 	init: function() {
 		// init
 		prismfx_init(this);
-                this.appendDummyInput().appendField("CLEAR");
-                this.appendDummyInput().appendField("Rotation")
+        this.appendDummyInput().appendField(Blockly.Msg.PRISMFX_Clear);
+        this.appendDummyInput().appendField(Blockly.Msg.PRISMFX_Rotation)
 					.appendField(new Blockly.FieldDropdown([
-					["0 Pins on top"   , "0"],
-					["1 Pins on left"  , "1"],
-					["2 Pins on bottom", "2"],
-					["3 Pins on right" , "3"]
+					[Blockly.Msg.PRISMFX_Clear_Top   , "0"],
+					[Blockly.Msg.PRISMFX_Clear_Left  , "1"],
+					[Blockly.Msg.PRISMFX_Clear_Bottom, "2"],
+					[Blockly.Msg.PRISMFX_Clear_Right , "3"]
 					]), "Rotation");
-		this.appendValueInput("COLOR").setCheck("Number").appendField("COLOR");
+		this.appendValueInput("COLOR").setCheck("Number").appendField(Blockly.Msg.PRISMFX_Color);
 		this.setInputsInline(true);
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
 		this.setColour(160);
-		this.setTooltip("");
-		this.setHelpUrl("");
+		this.setTooltip(Blockly.Msg.PRISMFX_Clear_ToolTip);
+		this.setHelpUrl(Blockly.Msg.PRISMFX_Clear_HelpURL);
 }};
 
 Blockly.Blocks["prismfx.setTextColor"] = {
 	init: function() {
 		prismfx_init(this);
 		this.appendDummyInput().appendField(Blockly.Msg.PRISMFX_TEXT_COLOR_TITLE);
-		this.appendValueInput("Fore").setCheck("Number").appendField("ForeColor");
-		this.appendValueInput("Back").setCheck("Number").appendField("BackColor");
+		this.appendValueInput("Fore").setCheck("Number").appendField(Blockly.Msg.PRISMFX_TEXT_COLOR_Foreground);
+		this.appendValueInput("Back").setCheck("Number").appendField(Blockly.Msg.PRISMFX_TEXT_COLOR_Background);
 		this.setInputsInline(true);
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
@@ -59,11 +59,11 @@ Blockly.Blocks["prismfx.print"] = {
 	init: function() {
 		prismfx_init(this);
 		this.appendDummyInput().appendField(Blockly.Msg.PRISMFX_PRINT_TITLE);
-		this.appendValueInput("Col").setCheck("Number" ).appendField("Column");
-		this.appendValueInput("Row").setCheck("Number" ).appendField("Row"   );
-		this.appendValueInput('Str').setCheck("String" ).appendField("Str"   );
-		this.appendDummyInput().appendField("Size").appendField(new Blockly.FieldDropdown(
-			[ [ "S Small 6x8"   , "0" ], [ "M Medium 10x15" , "1" ] ]), "Size");
+		this.appendValueInput("Row").setCheck("Number" ).appendField(Blockly.Msg.PRISMFX_PRINT_Row);
+		this.appendValueInput("Col").setCheck("Number" ).appendField(Blockly.Msg.PRISMFX_PRINT_Col);
+		this.appendValueInput('Str').setCheck("String" ).appendField(Blockly.Msg.PRISMFX_PRINT_Str);
+		this.appendDummyInput().appendField(Blockly.Msg.PRISMFX_PRINT_Size).appendField(new Blockly.FieldDropdown(
+			[ [ Blockly.Msg.PRISMFX_PRINT_Small   , "0" ], [ Blockly.Msg.PRISMFX_PRINT_Medium, "1" ] ]), "Size");
 		this.setInputsInline(true);
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
@@ -90,73 +90,73 @@ Blockly.Blocks["prismfx.printGFX"] = {
 Blockly.Blocks['prismfx.point'] = {
 	init: function() {
 	  prismfx_init(this);
-	  this.appendDummyInput().appendField("Point");
-	  this.appendValueInput("X1").setCheck("Number").appendField("X1");
-	  this.appendValueInput("Y1").setCheck("Number").appendField("Y1");
-	  this.appendValueInput("COLOR").setCheck("Number").appendField("COLOR");
+	  this.appendDummyInput().appendField(Blockly.Msg.PRISMFX_POINT_TITLE);
+	  this.appendValueInput("X1").setCheck("Number").appendField(Blockly.Msg.PRISMFX_POINT_X);
+	  this.appendValueInput("Y1").setCheck("Number").appendField(Blockly.Msg.PRISMFX_POINT_Y);
+	  this.appendValueInput("COLOR").setCheck("Number").appendField(Blockly.Msg.PRISMFX_Color);
 	  this.setInputsInline(true);
 	  this.setPreviousStatement(true, null);
 	  this.setNextStatement(true, null);
 	  this.setColour(150);
-	  this.setTooltip("");
-	  this.setHelpUrl("");
+	  this.setTooltip(Blockly.Msg.PRISMFX_POINT_TOOLTIP);
+	  this.setHelpUrl(Blockly.Msg.PRISMFX_POINT_HELPURL);
   }};
   
   Blockly.Blocks['prismfx.line'] = {
 	init: function() {
 	  prismfx_init(this);
-	  this.appendDummyInput().appendField("Line");
-	  this.appendValueInput("X1").setCheck("Number").appendField("X1");
-	  this.appendValueInput("Y1").setCheck("Number").appendField("Y1");
-	  this.appendValueInput("X2").setCheck("Number").appendField("X2");
-	  this.appendValueInput("Y2").setCheck("Number").appendField("Y2");
-	  this.appendValueInput("COLOR").setCheck("Number").appendField("COLOR");
+	  this.appendDummyInput().appendField(Blockly.Msg.PRISMFX_LINE_TITLE);
+	  this.appendValueInput("X1").setCheck("Number").appendField(Blockly.Msg.PRISMFX_X1);
+	  this.appendValueInput("Y1").setCheck("Number").appendField(Blockly.Msg.PRISMFX_Y1);
+	  this.appendValueInput("X2").setCheck("Number").appendField(Blockly.Msg.PRISMFX_X2);
+	  this.appendValueInput("Y2").setCheck("Number").appendField(Blockly.Msg.PRISMFX_Y2);
+	  this.appendValueInput("COLOR").setCheck("Number").appendField(Blockly.Msg.PRISMFX_Color);
 	  this.setInputsInline(true);
 	  this.setPreviousStatement(true, null);
 	  this.setNextStatement(true, null);
 	  this.setColour(150);
-	  this.setTooltip("");
-	  this.setHelpUrl("");
+	  this.setTooltip(Blockly.Msg.PRISMFX_LINE_TOOLTIP);
+	  this.setHelpUrl(Blockly.Msg.PRISMFX_LINE_HELPURL);
   }};
   
   Blockly.Blocks['prismfx.rectangle'] = {
 	init: function() {
 	  prismfx_init(this);
-	  this.appendDummyInput().appendField("Rectangle");
-	  this.appendValueInput("X1").setCheck("Number").appendField("X1");
-	  this.appendValueInput("Y1").setCheck("Number").appendField("Y1");
-	  this.appendValueInput("X2").setCheck("Number").appendField("X2");
-	  this.appendValueInput("Y2").setCheck("Number").appendField("Y2");
-	  this.appendValueInput("COLOR").setCheck("Number").appendField("COLOR");
-	  this.appendDummyInput().appendField("Fill").appendField(new Blockly.FieldDropdown(
-		[ [ "Filled", "true" ], [ "Outline", "false" ] ]), "Fill");
+	  this.appendDummyInput().appendField(Blockly.Msg.PRISMFX_RECT_TITLE);
+	  this.appendValueInput("X1").setCheck("Number").appendField(Blockly.Msg.PRISMFX_X1);
+	  this.appendValueInput("Y1").setCheck("Number").appendField(Blockly.Msg.PRISMFX_Y1);
+	  this.appendValueInput("X2").setCheck("Number").appendField(Blockly.Msg.PRISMFX_X2);
+	  this.appendValueInput("Y2").setCheck("Number").appendField(Blockly.Msg.PRISMFX_Y2);
+	  this.appendValueInput("COLOR").setCheck("Number").appendField(Blockly.Msg.PRISMFX_Color);
+	  this.appendDummyInput().appendField(Blockly.Msg.PRISMFX_Fill).appendField(new Blockly.FieldDropdown(
+		[ [ Blockly.Msg.PRISMFX_Fill, "true" ], [ Blockly.Msg.PRISMFX_Outline, "false" ] ]), "Fill");
 	  this.setInputsInline(true);
 	  this.setPreviousStatement(true, null);
 	  this.setNextStatement(true, null);
 	  this.setColour(150);
-	  this.setTooltip("");
-	  this.setHelpUrl("");
+	  this.setTooltip(Blockly.Msg.PRISMFX_RECT_TOOLTIP);
+	  this.setHelpUrl(Blockly.Msg.PRISMFX_RECT_HELPURL);
   }};
 
   Blockly.Blocks['prismfx.triangle'] = {
 	init: function() {
 	  prismfx_init(this);
-	  this.appendDummyInput().appendField("Triangle");
-	  this.appendValueInput("X1").setCheck("Number").appendField("X1");
-	  this.appendValueInput("Y1").setCheck("Number").appendField("Y1");
-	  this.appendValueInput("X2").setCheck("Number").appendField("X2");
-	  this.appendValueInput("Y2").setCheck("Number").appendField("Y2");
-	  this.appendValueInput("X3").setCheck("Number").appendField("X3");
-	  this.appendValueInput("Y3").setCheck("Number").appendField("Y3");
-	  this.appendValueInput("COLOR").setCheck("Number").appendField("COLOR");
-	  this.appendDummyInput().appendField("Fill").appendField(new Blockly.FieldDropdown(
-		[ [ "Filled", "true" ], [ "Outline", "false" ] ]), "Fill");
+	  this.appendDummyInput().appendField(Blockly.Msg.PRISMFX_TRIANGLE_TITLE);
+	  this.appendValueInput("X1").setCheck("Number").appendField(Blockly.Msg.PRISMFX_X1);
+	  this.appendValueInput("Y1").setCheck("Number").appendField(Blockly.Msg.PRISMFX_Y1);
+	  this.appendValueInput("X2").setCheck("Number").appendField(Blockly.Msg.PRISMFX_X2);
+	  this.appendValueInput("Y2").setCheck("Number").appendField(Blockly.Msg.PRISMFX_Y2);
+	  this.appendValueInput("X3").setCheck("Number").appendField(Blockly.Msg.PRISMFX_X3);
+	  this.appendValueInput("Y3").setCheck("Number").appendField(Blockly.Msg.PRISMFX_Y3);
+	  this.appendValueInput("COLOR").setCheck("Number").appendField(Blockly.Msg.PRISMFX_Color);
+	  this.appendDummyInput().appendField(Blockly.Msg.PRISMFX_Fill).appendField(new Blockly.FieldDropdown(
+		[ [ Blockly.Msg.PRISMFX_Fill, "true" ], [ Blockly.Msg.PRISMFX_Outline, "false" ] ]), "Fill");
 	  this.setInputsInline(true);
 	  this.setPreviousStatement(true, null);
 	  this.setNextStatement(true, null);
 	  this.setColour(150);
-	  this.setTooltip("");
-	  this.setHelpUrl("");
+	  this.setTooltip(Blockly.Msg.PRISMFX_TRIANGLE_TOOLTIP);
+	  this.setHelpUrl(Blockly.Msg.PRISMFX_TRIANGLE_HELPURL);
   }};
   
 Blockly.Blocks['prismfx.picker'] = {
@@ -165,8 +165,8 @@ Blockly.Blocks['prismfx.picker'] = {
         .appendField(new Blockly.FieldColour("#f70000"), "COLOR");
     this.setOutput(true, "Number");
     this.setColour(230);
- this.setTooltip("");
- this.setHelpUrl("");
+	this.setTooltip(Blockly.Msg.PRISMFX_PICKER_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.PRISMFX_PICKER_HELPURL);
 }};
 
 
@@ -174,9 +174,9 @@ Blockly.Blocks['prismfx.num2str'] = {
 	init: function() {
 		this.appendDummyInput().appendField(Blockly.Msg.PRISMFX_NUM2STR_TITLE);
 		//read this in generator V       type check V                     V display this in block
-		this.appendValueInput("Value" ).setCheck("Number").appendField("Value" );
-		this.appendValueInput("Width" ).setCheck("Number").appendField("Width" );
-		this.appendDummyInput().appendField("Decimals")
+		this.appendValueInput("Value" ).setCheck("Number").appendField(Blockly.Msg.PRISMFX_NUM2STR_Value);
+		this.appendValueInput("Width" ).setCheck("Number").appendField(Blockly.Msg.PRISMFX_NUM2STR_Width);
+		this.appendDummyInput().appendField(Blockly.Msg.PRISMFX_NUM2STR_Decimals)
 	 		.appendField(new Blockly.FieldDropdown([
 	 			["0", "0"],
 				["1", "1"],
@@ -186,61 +186,61 @@ Blockly.Blocks['prismfx.num2str'] = {
 	  			["5", "5"],
 	  			["6", "6"]
 				]), "Decimals");
-		this.appendDummyInput().appendField("Format")
+		this.appendDummyInput().appendField(Blockly.Msg.PRISMFX_NUM2STR_Format)
 			.appendField(new Blockly.FieldDropdown([
-				["integer"         , "0"],
-				["hexadecimal"     , "1"],
-				["hex w/leading 0s", "2"],
-				["fixed point"     , "3"],
-				["exponential"     , "4"]
+				[Blockly.Msg.PRISMFX_NUM2STR_integer        , "0"],
+				[Blockly.Msg.PRISMFX_NUM2STR_hexadecimal	, "1"],
+				[Blockly.Msg.PRISMFX_NUM2STR_hexw0s			, "2"],
+				[Blockly.Msg.PRISMFX_NUM2STR_fixed_point    , "3"],
+				[Blockly.Msg.PRISMFX_NUM2STR_exponential   	, "4"]
 			   ]), "Format");
 		this.setInputsInline(true);
 		this.setOutput(true, "String");
 		this.setColour(160);
 		this.setTooltip(Blockly.Msg.PRISMFX_NUM2STR_TOOLTIP);
-		this.setHelpUrl('');
+		this.setHelpUrl(Blockly.Msg.PRISMFX_NUM2STR_HELPURL);
 }};
 
 Blockly.Blocks["prismfx.initplot"] = {
 	init: function() {
 		// init
 		prismfx_init(this);
-        this.appendDummyInput().appendField("init plot");
-        this.appendDummyInput().appendField("index").appendField(new Blockly.FieldDropdown([	// <-- name displayed in block
+        this.appendDummyInput().appendField(Blockly.Msg.PRISMFX_PLOT_INIT);
+        this.appendDummyInput().appendField(Blockly.Msg.PRISMFX_PLOT_index).appendField(new Blockly.FieldDropdown([	// <-- name displayed in block
 				["1", "0"],
 				["2", "1"],
 				["3", "2"]]), "inx");	// << name for generator
-		this.appendValueInput("nam").setCheck("String").appendField("variable name");
-		this.appendValueInput("unt").setCheck("String").appendField("units");
-		this.appendValueInput("min").setCheck("Number").appendField("plotMin");
-		this.appendValueInput("max").setCheck("Number").appendField("plotMax");
-		this.appendDummyInput().appendField("decimals").appendField(new Blockly.FieldDropdown([	// <-- name displayed in block
+		this.appendValueInput("nam").setCheck("String").appendField(Blockly.Msg.PRISMFX_PLOT_variable_name);
+		this.appendValueInput("unt").setCheck("String").appendField(Blockly.Msg.PRISMFX_PLOT_units);
+		this.appendValueInput("min").setCheck("Number").appendField(Blockly.Msg.PRISMFX_PLOT_plotMin);
+		this.appendValueInput("max").setCheck("Number").appendField(Blockly.Msg.PRISMFX_PLOT_plotMax);
+		this.appendDummyInput().appendField(Blockly.Msg.PRISMFX_PLOT_decimals).appendField(new Blockly.FieldDropdown([	// <-- name displayed in block
 				["0", "0"],
 				["1", "1"],
 				["2", "2"],
 				["3", "3"],
 				["4", "4"]]), "dec");	// << name for generator
-		this.appendValueInput("col").setCheck("Number").appendField("color");
+		this.appendValueInput("col").setCheck("Number").appendField(Blockly.Msg.PRISMFX_Color);
 		this.setInputsInline(true);
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
 		this.setColour(160);
-		this.setTooltip("");
-		this.setHelpUrl("");
+		this.setTooltip(Blockly.Msg.PRISMFX_PLOT_INIT_TOOLTIP);
+		this.setHelpUrl(Blockly.Msg.PRISMFX_PLOT_INIT_HELPURL);
 }};
 
 Blockly.Blocks["prismfx.plotdata"] = {
 	init: function() {
 		// init
 		prismfx_init(this);
-        this.appendDummyInput().appendField("iplot data");
-		this.appendValueInput("v1").setCheck("Number").appendField("var1");
-		this.appendValueInput("v2").setCheck("Number").appendField("var2");
-		this.appendValueInput("v3").setCheck("Number").appendField("var3");
+        this.appendDummyInput().appendField(Blockly.Msg.PRISMFX_PLOT_DATA);
+		this.appendValueInput("v1").setCheck("Number").appendField(Blockly.Msg.PRISMFX_PLOT_DATA1);
+		this.appendValueInput("v2").setCheck("Number").appendField(Blockly.Msg.PRISMFX_PLOT_DATA2);
+		this.appendValueInput("v3").setCheck("Number").appendField(Blockly.Msg.PRISMFX_PLOT_DATA3);
 		this.setInputsInline(true);
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
 		this.setColour(160);
-		this.setTooltip("");
-		this.setHelpUrl("");
+		this.setTooltip(Blockly.Msg.PRISMFX_PLOT_DATA_TOOLTIP);
+		this.setHelpUrl(Blockly.Msg.PRISMFX_PLOT_DATA_HELPURL);
 }};
