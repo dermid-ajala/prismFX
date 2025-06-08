@@ -60,18 +60,18 @@ Blockly.Msg.PRISMFX_TRIANGLE_HELPURL= "";
 Blockly.Msg.PRISMFX_PICKER_TOOLTIP  = "Color picker";
 Blockly.Msg.PRISMFX_PICKER_HELPURL  = "";
 
-Blockly.Msg.PRISMFX_NUM2STR_TITLE   = "Num->Str";
-Blockly.Msg.PRISMFX_NUM2STR_Value   = "Value";
-Blockly.Msg.PRISMFX_NUM2STR_Width   = "Width";
-Blockly.Msg.PRISMFX_NUM2STR_Decimals= "Decimals";
-Blockly.Msg.PRISMFX_NUM2STR_Format  = "Format";
+Blockly.Msg.PRISMFX_NUM2STR_TITLE       = "Num->Str";
+Blockly.Msg.PRISMFX_NUM2STR_Value       = "Value";
+Blockly.Msg.PRISMFX_NUM2STR_Width       = "Width";
+Blockly.Msg.PRISMFX_NUM2STR_Decimals    = "Decimals";
+Blockly.Msg.PRISMFX_NUM2STR_Format      = "Format";
 Blockly.Msg.PRISMFX_NUM2STR_integer     = "Integer";
 Blockly.Msg.PRISMFX_NUM2STR_hexadecimal = "Hexadecimal";
 Blockly.Msg.PRISMFX_NUM2STR_hexw0s      = "Hex with leading 0s";
 Blockly.Msg.PRISMFX_NUM2STR_fixed_point = "Fixed point";
 Blockly.Msg.PRISMFX_NUM2STR_exponential = "Exponential";
-Blockly.Msg.PRISMFX_NUM2STR_TOOLTIP = "Convert a number to a formatted string\nValue: number to convert (default 0)\nWidth: output string length (default 6)\nDecimals: digits after decimal point (default 0)\nFormat: how to convert (default integer)"
-Blockly.Msg.PRISMFX_NUM2STR_HELPURL = "";
+Blockly.Msg.PRISMFX_NUM2STR_TOOLTIP     = "Convert a number to a formatted string\nValue: number to convert (default 0)\nWidth: output string length (default 6)\nDecimals: digits after decimal point (default 0)\nFormat: how to convert (default integer)"
+Blockly.Msg.PRISMFX_NUM2STR_HELPURL     = "";
 
 Blockly.Msg.PRISMFX_PLOT_INIT           = "Init Plot:"
 Blockly.Msg.PRISMFX_PLOT_index          = "Index";
@@ -89,3 +89,10 @@ Blockly.Msg.PRISMFX_PLOT_DATA2          = "var 2 data";
 Blockly.Msg.PRISMFX_PLOT_DATA3          = "var 3 data";
 Blockly.Msg.PRISMFX_PLOT_DATA_TOOLTIP   = "Append new data to the scatter plot"
 Blockly.Msg.PRISMFX_PLOT_DATA_HELPURL   = "";
+
+Blockly.Msg.PRISMFX_IMAGE_TITLE         = "Draw Image:";
+Blockly.Msg.PRISMFX_IMAGE_ID            = "Select Image";
+Blockly.Msg.PRISMFX_IMAGE_SCALE         = "Scale";
+Blockly.Msg.PRISMFX_IMAGE_TOOLTIP       = "Draw selected image at coordinates (x,y)";
+Blockly.Msg.PRISMFX_IMAGE_HELPURL       = "";
+
