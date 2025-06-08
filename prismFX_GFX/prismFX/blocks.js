@@ -244,3 +244,28 @@ Blockly.Blocks["prismfx.plotdata"] = {
 		this.setTooltip(Blockly.Msg.PRISMFX_PLOT_DATA_TOOLTIP);
 		this.setHelpUrl(Blockly.Msg.PRISMFX_PLOT_DATA_HELPURL);
 }};
+
+Blockly.Blocks['prismfx.image'] = {
+	init: function() {
+	  prismfx_init(this);
+	  this.appendDummyInput().appendField(Blockly.Msg.PRISMFX_IMAGE_TITLE);
+	  this.appendValueInput("X").setCheck("Number").appendField(Blockly.Msg.PRISMFX_X);
+	  this.appendValueInput("Y").setCheck("Number").appendField(Blockly.Msg.PRISMFX_Y);
+      this.appendDummyInput().appendField(Blockly.Msg.PRISMFX_IMAGE_ID).appendField(new Blockly.FieldDropdown([	// <-- name displayed in block
+				["image1", "1"],
+				["image2", "2"]]), "img");	// << name for generator
+      this.appendDummyInput().appendField(Blockly.Msg.PRISMFX_IMAGE_SCALE).appendField(new Blockly.FieldDropdown([	// <-- name displayed in block
+				["Full Size", "12"],
+				["3/4  Size", "9"],
+				["2/3  Size", "8"],
+				["Half Size", "6"],
+				["1/3  Size", "4"],
+				["1/4  Size", "3"]]), "siz");	// << name for generator
+	  this.setInputsInline(true);
+	  this.setPreviousStatement(true, null);
+	  this.setNextStatement(true, null);
+	  this.setColour(150);
+	  this.setTooltip(Blockly.Msg.PRISMFX_IMAGE_TOOLTIP);
+	  this.setHelpUrl(Blockly.Msg.PRISMFX_IMAGE_HELPURL);
+  }};
+ 
