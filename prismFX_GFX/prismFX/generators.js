@@ -94,3 +94,11 @@ Blockly.JavaScript['prismfx.plotdata'] = function(block) {
 	var v3 = Blockly.JavaScript.valueToCode(block, 'v3', Blockly.JavaScript.ORDER_ASSIGNMENT) || '0';
 	return 'DEV_SPI.PrismFX(' + block.getFieldValue('ADDRESS') + ').plotPoint(' + v1 + ',' + v2 + ',' + v3 + ');\n';
 };
+
+Blockly.JavaScript['prismfx.image'] = function(block) {
+	var x   = Blockly.JavaScript.valueToCode(block, 'X', Blockly.JavaScript.ORDER_ASSIGNMENT) || '0';
+	var y   = Blockly.JavaScript.valueToCode(block, 'Y', Blockly.JavaScript.ORDER_ASSIGNMENT) || '0';
+	var img = block.getFieldValue("img");
+	var sz  = block.getFieldValue("siz");
+	return 'DEV_SPI.PrismFX(' + block.getFieldValue('ADDRESS') + ').drawImage(' + x + ',' + y + ',' + img + ',' + sz +');\n';
+};
