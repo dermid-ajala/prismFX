@@ -87,7 +87,7 @@ class PrismFX : public Device {
 		void drawChar9x14(char character);
 		void drawStr9x14(char *message);
 		void drawCharCustom(uint8_t character);
-		void bufferOut(uint8_t *bufr, uint16_t sz);
+		void bufferOut(uint8_t *bufr, uint32_t sz);
 		uint16_t color565(uint32_t rgb);
 	
 	public:
@@ -115,10 +115,10 @@ class PrismFX : public Device {
 		void rectangle  (uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2								, uint32_t color, bool fill );
 		void triangle  	(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t x3, uint16_t y3	, uint32_t color, bool fill );
 		void circle  	(uint16_t x1, uint16_t y1, uint16_t r											, uint32_t color, bool fill );
-		void image  	(uint16_t x1, uint16_t y1, uint16_t imageID, double scale);
 		static char *num2str	(double val, uint8_t wid, uint8_t dig, uint8_t fmt);
 		void initPlot	(uint8_t index, char *variable, char * units, double min, double max, char decimals, uint32_t color);
 		void plotPoint	(double v1, double v2, double v3);
+		void drawImage	(uint16_t x1, uint16_t y1, uint8_t imageID, uint16_t scale);
 };
 
 #endif
