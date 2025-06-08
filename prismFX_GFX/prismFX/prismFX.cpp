@@ -7,6 +7,8 @@
 #include "font_9x15.h"
 #include "enFont.h"
 #include "thFont.h"
+#include "image1.h"	// RYW logo 240x240
+#include "image2.h"	// flowers 240x240
 
 // 26 is out OUT1, 27 is OUT2, 0 is default
 #define CS_PIN	GPIO_NUM_0
@@ -149,7 +151,7 @@ void PrismFX::setAddrWindow(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2){
 	spi->write(channel, address, &cmdColor, 1);	// now prepared to receive color data
 }
 
-void PrismFX::bufferOut(uint8_t *bufr, uint16_t sz){	// for sending bulk data in BUFFER_SIZE chunks
+void PrismFX::bufferOut(uint8_t *bufr, uint32_t sz){	// for sending bulk data in BUFFER_SIZE chunks
 	if( CMD_SET)	wrMCP(mcpPort, adat);  				// DC hi, CS lo
 	while(sz > BUFFER_SIZE){							// for all BUFFER_SIZE chunks
 		spi->write(channel, address, bufr, BUFFER_SIZE);
@@ -232,8 +234,9 @@ void PrismFX::drawLine(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint1
 }
 
 // TODO drawCircle
-// TODO drawBitmap
 // TODO drawTriangle
+
+
 
 void PrismFX::drawRect(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color, bool fill){
 	if(fill){
@@ -481,10 +484,6 @@ void PrismFX::triangle  (uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uin
 }
 
 void PrismFX::circle  	(uint16_t x1, uint16_t y1, uint16_t r											, uint32_t color, bool fill ){
-// stub for blockly testing
-}
-
-void PrismFX::image  	(uint16_t x1, uint16_t y1, uint16_t imageID, double scale){
 // stub for blockly testing
 }
 
@@ -756,6 +755,34 @@ void PrismFX::printGFX(uint8_t col, uint8_t row, char *message){
 		}
 	}
 }
+
+void PrismFX::drawImage(uint16_t x, uint16_t y, uint8_t imageID, uint16_t scale){
+	uint8_t bufr[BUFFER_SIZE], skip=2;
+	uint32_t pos=0, sz = sizeof(imageID==2 ? image2 : image1);
+	const uint8_t *p   = imageID==2 ? image2 : image1;
+	setAddrWindow(0, 0, _W*scale/12, _H*scale/12);
+
+	if( CMD_SET)	wrMCP(mcpPort, adat);  				// DC hi, CS lo - set hardware pins to receive data
+
+	while(sz > BUFFER_SIZE){		
+		for(int i=0; i<BUFFER_SIZE; i+=2){
+				bufr[i+1] = *p++;							// need to swap bytes
+				bufr[i] = *p++;
+				sz -= 2;
+		}
+		spi->write(channel, address, bufr, BUFFER_SIZE);
+	}
+	if(sz){												// remainder of buffer, if any
+		for(int i=0; i<sz; i+=2){
+			bufr[i+1] = *p++;							// need to swap bytes
+			bufr[i] = *p++;
+		}
+		spi->write(channel, address, bufr, (uint16_t) sz);
+	}
+
+	wrMCP(mcpPort, 0xff);      							// rst, dc, & cs all high - deselect display
+}
+
 
 // Unused but seemingly required functions
 
