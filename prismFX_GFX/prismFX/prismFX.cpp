@@ -775,11 +775,11 @@ uint8_t * skip(uint8_t *p, uint8_t *q, uint16_t scale){
 			if((col & 1) == 1)	p += 2;		// skip pixel
 			break;
 		case  4:
-			if((lin % 3) != 0)	p += 480; 	// skip line, 240 pixels per line x 2 bytes per pixel
+			if((lin % 3) != 0)	p += 960; 	// skip line, 240 pixels per line x 2 bytes per pixel
 			if((col % 3) != 0)	p += 4;		// skip pixel
 			break;
 		case  3:
-			if((lin & 3) != 0)	p += 480; 	// skip line, 240 pixels per line x 2 bytes per pixel
+			if((lin & 3) != 0)	p += 1440; 	// skip line, 240 pixels per line x 2 bytes per pixel
 			if((col & 3) != 0)	p += 6;		// skip pixel
 			break;
 		default:	break;
