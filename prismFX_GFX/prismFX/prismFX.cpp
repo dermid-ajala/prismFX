@@ -756,57 +756,27 @@ void PrismFX::printGFX(uint8_t col, uint8_t row, char *message){
 	}
 }
 
-uint8_t * skip(uint8_t *p, uint8_t *q, uint16_t scale){
-	uint32_t pos = (p-q)/2;		// pixel position
-	uint32_t lin = pos / 240;	// line number of current position
-	uint32_t col = pos % 240;	// column number of current position
-	switch(scale){
-		case 12:	break;			// full size image, don't skip any pixels
-		case  9:
-			if((lin & 3) == 3)	p += 480; 	// skip line, 240 pixels per line x 2 bytes per pixel
-			if((col & 3) == 3)	p += 2;		// skip pixel
-			break;
-		case  8:	
-			if((lin % 3) == 2)	p += 480; 	// skip line, 240 pixels per line x 2 bytes per pixel
-			if((col % 3) == 2)	p += 2;		// skip pixel
-			break;
-		case  6:
-			if((lin & 1) == 1)	p += 480; 	// skip line, 240 pixels per line x 2 bytes per pixel
-			if((col & 1) == 1)	p += 2;		// skip pixel
-			break;
-		case  4:
-			if((lin % 3) != 0)	p += 960; 	// skip line, 240 pixels per line x 2 bytes per pixel
-			if((col % 3) != 0)	p += 4;		// skip pixel
-			break;
-		case  3:
-			if((lin & 3) != 0)	p += 1440; 	// skip line, 240 pixels per line x 2 bytes per pixel
-			if((col & 3) != 0)	p += 6;		// skip pixel
-			break;
-		default:	break;
-	}
-	return p;
-}
-
-void PrismFX::drawImage(uint16_t x, uint16_t y, uint8_t imageID, uint16_t scale){
-	if(x + 20 * scale > 240)	return;	// image won't fit
-	if(y + 20 * scale > 240)	return;	// image wor't fit
-	const uint8_t *addr = imageID==2 ? image2 : image1;
-	uint8_t *q, *p, *limit, bufr[BUFFER_SIZE];
-	p = q = limit = (uint8_t *)addr;
-	limit += 115200;
-	setAddrWindow(x, y, x+20*scale-1, y+20*scale-1);
+void PrismFX::drawImage(uint16_t x, uint16_t y, uint8_t imageID){
+	int width  = imageID==2 ? img2_width  : img1_width;
+	int height = imageID==2 ? img2_height : img1_height;
+	printf("in drawImage, imageID=%d,  w=%d, h=%d\n", imageID, width, height);
+	if(x + width > 240)		return;	// image won't fit
+	if(y + height > 240)	return;	// image wor't fit
+	const uint8_t *addr = imageID==2 ?  (uint8_t *)img2 :  (uint8_t *)img1;
+	uint8_t *p, *limit, bufr[BUFFER_SIZE];
+	p = limit = (uint8_t *)addr;
+	limit += width * height * 2 - BUFFER_SIZE;
+	setAddrWindow(x, y, x+width-1, y+height-1);
 	wrMCP(mcpPort, adat);  				// DC hi, CS lo - set hardware pins to receive dat
 	while(p < limit){	
 		int i;	
 		for(i=0; i<BUFFER_SIZE && p<limit; i+=2){
-			p = skip(p, q, scale);		// skip some pixels if scaling
 			bufr[i+1] = *p++;			// need to swap bytes
 			bufr[i] = *p++;
 		}
 		if(p>=limit)	break;
 		spi->write(channel, address, bufr, i);
 	}
-	printf("scale %d, p %p, q %p, p-q %d\n", scale, p, q, p-q);
 	wrMCP(mcpPort, 0xff);      			// rst, dc, & cs all high - deselect display
 }
 

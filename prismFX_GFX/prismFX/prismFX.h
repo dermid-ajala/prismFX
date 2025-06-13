@@ -118,7 +118,7 @@ class PrismFX : public Device {
 		static char *num2str	(double val, uint8_t wid, uint8_t dig, uint8_t fmt);
 		void initPlot	(uint8_t index, char *variable, char * units, double min, double max, char decimals, uint32_t color);
 		void plotPoint	(double v1, double v2, double v3);
-		void drawImage	(uint16_t x1, uint16_t y1, uint8_t imageID, uint16_t scale);
+		void drawImage	(uint16_t x1, uint16_t y1, uint8_t imageID);
 };
 
 #endif
